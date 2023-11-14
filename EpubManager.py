@@ -5,7 +5,7 @@ from tkinter import messagebox
 import win32com.client as win32
 
 # Fixed folder path
-FOLDER_PATH = "C:/Users/KAAN/YandexDisk/Downloads/Epub"
+FOLDER_PATH = "books"
 
 def list_epubs():
     return [file for file in os.listdir(FOLDER_PATH) if file.endswith('.epub')]
@@ -39,7 +39,7 @@ def send_to_kindle():
     selected_file = results_list.get(tk.ACTIVE)
     if not selected_file:
         return
-    selected_file_path = os.path.join(FOLDER_PATH, selected_file)
+    selected_file_path = os.path.abspath(os.path.join(FOLDER_PATH, selected_file))
 
     kindle_email = "your_kindle_email@example.com"
     try:
@@ -53,10 +53,16 @@ def send_to_kindle():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred while creating the email: {e}")
 
+
 def create_gui():
     window = tk.Tk()
     window.title("Epub Search and Send")
     window.geometry("600x500")
+    
+    # Set custom icon
+    icon_path = "lib.ico"  # Replace with the correct path to your 'lib.ico' file
+    window.iconbitmap(icon_path)
+
 
     # Dark theme colors
     dark_bg = "#363636"
