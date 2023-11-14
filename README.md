@@ -1,5 +1,7 @@
 # EPUB Manager and Sender
 
+![Photo of program](https://raw.githubusercontent.com/dikeckaan/Kindle-Epub-Manager/main/manager.png)
+
 ## Overview
 This Python application provides a user-friendly interface to manage and send EPUB files. Built with Tkinter and leveraging the `win32com` library for Windows integrations, it simplifies the process of handling EPUB files stored in a specific directory.
 
